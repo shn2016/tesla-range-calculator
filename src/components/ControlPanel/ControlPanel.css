@@ -1,0 +1,75 @@
+.control-panel {
+  display: flex;
+  justify-content: center;
+}
+
+.control-panel > div {
+  width: 170px;
+  text-align: center;
+}
+
+.option-container {
+  display: flex;
+  justify-content: space-around;
+  border: 1px solid #ccc;
+  margin: 0px 10px;
+}
+
+.option-button-container {
+  display: grid;
+  grid-auto-flow: row;
+}
+
+.speed-control {
+  border-right: 1px solid;
+}
+
+.climate-button {
+  width: 120px;
+  height: 120px;
+  border: 7px solid rgb(231, 229, 229);
+  border-radius: 50%;
+  color: #666;
+  background: whitesmoke;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.wheel-option-container {
+  display: flex;
+}
+
+.wheel-21 {
+  background: url(../../assets/wheels/21.svg)
+}
+
+.wheel-19 {
+  background: url(../../assets/wheels/19.svg)
+}
+
+.wheel-box {
+  width: 150px;
+  border: 1px solid #ccc;
+  padding: 10px 0 0 0;
+  margin: 0 8px 0 0;
+  background-color: #f7f7f7;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+}
+
+.wheel-box > div {
+  width: 40px;
+  height: 40px;
+  padding: 0 20px;
+  bottom: 0;
+  background-position: 10px 0;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.wheel-box > p {
+  padding: 0 10px;
+}

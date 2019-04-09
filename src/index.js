@@ -1,12 +1,12 @@
-import Calculator from './components/Calculator';
-import './styles/app.css'
-import clearNode from './helper/clearNode';
-function main() {
-  const calculator = new Calculator();
-  
-  const appContainer = document.querySelector('#app');
-  clearNode(appContainer);
-  calculator.enhancedRender(appContainer);
-}
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import * as serviceWorker from './serviceWorker';
 
-document.addEventListener('DOMContentLoaded', main);
+ReactDOM.render(<App />, document.getElementById('root'));
+
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: https://bit.ly/CRA-PWA
+serviceWorker.unregister();

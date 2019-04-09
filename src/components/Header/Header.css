@@ -1,0 +1,9 @@
+.header {
+  background: black;
+  text-align: center;
+}
+.header > img {
+  padding: 2vh 30vw;
+  width: 10vw;
+  height: 4vh;
+}

@@ -1,0 +1,46 @@
+.display-panel {
+  display: flex;
+  justify-content: center;
+  margin-top: -40px;
+}
+
+.display-panel > div {
+  width: 150px;
+}
+.model-icon {
+  height: 20px;
+  background-size: auto 15px;
+  background-position: top right;
+  background-repeat: no-repeat;
+}
+.model-60 {
+  background-image: url(../../assets/models/60.svg)
+}
+.model-60D {
+  background-image: url(../../assets/models/60d.svg)
+}
+.model-75 {
+  background-image: url(../../assets/models/75.svg)
+}
+.model-75D {
+  background-image: url(../../assets/models/75d.svg)
+}
+.model-90D {
+  background-image: url(../../assets/models/90d.svg)
+}
+.model-P100D {
+  background-image: url(../../assets/models/p100d.svg)
+}
+
+.display-panel > div > p {
+  margin-top: -2px;
+  font-size: 38px;
+  font-weight: normal;
+  color: #008cffe3;
+  text-align: right;
+}
+
+.display-panel > div > p > sup{
+  font-size: 14px;
+  font-weight: normal;
+}
