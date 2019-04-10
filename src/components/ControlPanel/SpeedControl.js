@@ -1,13 +1,17 @@
 import React from 'react';
 
-const SpeedControl = () => (
+const SpeedControl = ({ 
+  selectedSpeed,
+  onIncreaseButtonClick,
+  onDecreaseButtonClick,
+}) => (
   <div className='speed-control'>
     <p>Speed</p>
     <div className='option-container'>
-      <p>20 <sup>MPH</sup></p>
+      <p>{selectedSpeed} <sup>MPH</sup></p>
       <div className='option-button-container'>
-        <button></button>
-        <button></button>
+        <button className='increase' onClick={() => onIncreaseButtonClick('speed')}></button>
+        <button onClick={() => onDecreaseButtonClick('speed')}></button>
       </div>
     </div>
   </div>

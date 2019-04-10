@@ -1,1 +1,1 @@
-export default ['19','21']
+export default [19,21]

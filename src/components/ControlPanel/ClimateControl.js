@@ -1,9 +1,17 @@
 import React from 'react';
 
-const ClimateControl = () => (
+const ClimateControl = ({ 
+  mode,
+  selectedClimate,
+  onClimateButtonClick,
+}) => (
   <div className='climate-control'>
-    <button className={`climate-button ac on`} type='button'>
-      <p>Heat on</p>
+    <button 
+      className={`climate-button ac on`} 
+      type='button'
+      onClick={() => onClimateButtonClick()}
+    >
+      <p>{mode} {selectedClimate}</p>
       <div className='climate-icon'></div>
     </button>
   </div>

@@ -1,22 +1,14 @@
 import React from 'react';
 import './DisplayPanel.css';
+import getRangeByModel from '../../services/getRanges';
 
-const data = [  
-  '60',
-  '60D',
-  '75',
-  '75D',
-  '90D',
-  'P100D',
-]
-
-const DisplayPanel = () => (
+const DisplayPanel = ({ models, selectedOptions }) => (
   <div className='display-panel'>
-    {data.map(model => {
+    {models.map(model => {
       return (
         <div key={model}>
           <div className={`model-icon model-${model}`}></div>
-          <p>200 <sup>MI</sup></p>
+          <p>{getRangeByModel(selectedOptions, model)} <sup>MI</sup></p>
         </div>
       )
     })}
