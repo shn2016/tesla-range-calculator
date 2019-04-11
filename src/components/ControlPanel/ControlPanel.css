@@ -1,11 +1,19 @@
 .control-panel {
   display: flex;
   justify-content: center;
+  margin-bottom:50px;
 }
 
 .control-panel > div {
-  width: 170px;
+  width: 200px;
   text-align: center;
+}
+
+.option-container p, .wheel-box p {
+  font-size: 25px;
+}
+.option-container sup, .wheel-box sup {
+  font-size: 12px;
 }
 
 .option-container {
@@ -13,6 +21,7 @@
   justify-content: space-around;
   border: 1px solid #ccc;
   margin: 0px 10px;
+  background-color: #f7f7f7;
 }
 
 .option-button-container {
@@ -20,10 +29,37 @@
   grid-auto-flow: row;
 }
 
-.speed-control {
-  border-right: 1px solid;
+.option-button-container .increase {
+  background-image: url(../../assets//counter/up.svg);
+  border-bottom: 1px solid #ccc;
 }
 
+.option-button-container .decrease {
+  background-image: url(../../assets//counter/down.svg);
+}
+
+.option-button-container > button {
+  outline: 0;
+  width: 30px;
+  color: #008dff;
+  cursor: pointer;
+  padding: 11px 0;
+  vertical-align: middle;
+  border: 0;
+  background-size: 60%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+}
+
+.speed-control {
+  border-right: 1px solid #ccc;
+}
+
+.climate-control {
+  padding-left: 60px;
+  margin-top: 20px;
+}
 .climate-button {
   width: 120px;
   height: 120px;
@@ -35,6 +71,38 @@
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
+  text-transform: uppercase;
+}
+
+.climate-button.AC.on {
+  background: #39f;
+  color:white;
+}
+
+.climate-button.HEAT.on {
+  background: red;
+  color:white;
+}
+
+.climate-icon {
+  width: 22px;
+  margin: 8px auto 0;
+  height: 22px
+}
+.climate-icon.AC.on {
+  background: url(../../assets/climate/ac-on.svg);
+}
+
+.climate-icon.AC.off {
+  background: url(../../assets/climate/ac-off.svg);
+}
+
+.climate-icon.HEAT.on {
+  background: url(../../assets/climate/heat-on.svg);
+}
+
+.climate-icon.HEAT.off {
+  background: url(../../assets/climate/heat-off.svg);
 }
 
 .wheel-option-container {
@@ -49,21 +117,26 @@
   background: url(../../assets/wheels/19.svg)
 }
 
+.wheel-control {
+  width: 360px !important;
+  margin-left: -20px;
+}
+
 .wheel-box {
-  width: 150px;
+  width: 170px;
   border: 1px solid #ccc;
-  padding: 10px 0 0 0;
   margin: 0 8px 0 0;
   background-color: #f7f7f7;
   cursor: pointer;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .wheel-box > div {
   width: 40px;
   height: 40px;
   padding: 0 20px;
+  margin-top: 20px;
   bottom: 0;
   background-position: 10px 0;
   background-size: contain;
@@ -72,4 +145,8 @@
 
 .wheel-box > p {
   padding: 0 10px;
+}
+
+.wheel-box.active {
+  border-color: #39f;
 }

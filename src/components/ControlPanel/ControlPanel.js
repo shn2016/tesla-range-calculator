@@ -11,17 +11,16 @@ class ControlPanel extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      climateMode: '',
+      climateMode: 'AC',
     }
 
     this.onClimateButtonClick = this.onClimateButtonClick.bind(this);
     this.onSmallWheelClick = this.onSmallWheelClick.bind(this);
     this.onLargeWheelClick = this.onLargeWheelClick.bind(this);
-    this.onIncreaseButtonClick = this.onIncreaseButtonClick.bind(this);
-    this.onDecreaseButtonClick = this.onDecreaseButtonClick.bind(this);
+    this.onControlButtonClick = this.onControlButtonClick.bind(this);
   }
 
-  componentWillMount() {
+  updateClimateMode() {
     const { selectedOptions } = this.props;
     const newClimateMode = (selectedOptions.temperature>=20) ? 'AC' : 'HEAT';
     this.setState({
@@ -31,38 +30,38 @@ class ControlPanel extends React.Component {
 
   onClimateButtonClick() {
     const { selectedOptions, updateOptions } = this.props;
-    selectedOptions.climate = (selectedOptions.climate==='on')? 'off' : 'on';
+    selectedOptions.climateButton = (selectedOptions.climateButton==='on')? 'off' : 'on';
     updateOptions(selectedOptions);
   }
 
   onSmallWheelClick() {
     const { selectedOptions, updateOptions } = this.props;
-    selectedOptions.wheel = '19';
+    selectedOptions.wheel = 19;
     updateOptions(selectedOptions);
   }
 
   onLargeWheelClick() {
     const { selectedOptions, updateOptions } = this.props;
-    selectedOptions.wheel = '21';
+    selectedOptions.wheel = 21;
     updateOptions(selectedOptions);
   }
 
-  onDecreaseButtonClick(type) {
+  onControlButtonClick(container, control ) {
     const { selectedOptions, updateOptions } = this.props;
-    const dataset = (type==='speed')? speed : temperature;
-    const index = dataset.indexOf(selectedOptions[type]);
-    if (index===0) return;
-    selectedOptions[type] = dataset[index-1];
-    updateOptions(selectedOptions);
-  }
+    const dataset = (container==='speed')? speed : temperature;
+    const index = dataset.indexOf(selectedOptions[container]);
 
-  onIncreaseButtonClick(type) {
-    const { selectedOptions, updateOptions } = this.props;
-    const dataset = (type==='speed')? speed : temperature;
-    const index = dataset.indexOf(selectedOptions[type]);
-    if (index===(dataset.length-1)) return;
-    selectedOptions[type] = dataset[index+1];
+    if (control === 'decrease') {
+      if (index===0) return;
+      selectedOptions[container] = dataset[index-1];
+    }
+    if (control === 'increase') {
+      if (index===(dataset.length-1)) return;
+      selectedOptions[container] = dataset[index+1];
+    }
+
     updateOptions(selectedOptions);
+    this.updateClimateMode();
   }
 
   render() {
@@ -73,17 +72,15 @@ class ControlPanel extends React.Component {
       <div className='control-panel'>
         <SpeedControl 
           selectedSpeed={selectedOptions.speed}
-          onIncreaseButtonClick={this.onIncreaseButtonClick}
-          onDecreaseButtonClick={this.onDecreaseButtonClick}
+          onControlButtonClick={this.onControlButtonClick}
         />
         <TemperatureControl 
           selectedTemperature={selectedOptions.temperature}
-          onIncreaseButtonClick={this.onIncreaseButtonClick}
-          onDecreaseButtonClick={this.onDecreaseButtonClick}
+          onControlButtonClick={this.onControlButtonClick}
         />
         <ClimateControl 
           mode={climateMode} 
-          selectedClimate={selectedOptions.climate}
+          selectedClimate={selectedOptions.climateButton}
           onClimateButtonClick={this.onClimateButtonClick}
         />
         <WheelControl 

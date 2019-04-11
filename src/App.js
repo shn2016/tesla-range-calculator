@@ -13,8 +13,8 @@ class App extends Component {
       selectedOptions: {
         speed: 55,
         temperature: "20",
-        climate: 'on',
         wheel: 19,
+        climateButton: 'on'
       },
       models: [  
         '60',
@@ -44,8 +44,7 @@ class App extends Component {
         <CarModel />
         <DisplayPanel models={models} selectedOptions={selectedOptions} />
         <ControlPanel selectedOptions={selectedOptions} updateOptions={this.updateOptions} />
-        <hr/>
-        <div className='disclaimer'>
+        <div className="disclaimer">
           <p>The actual amount of range that you experience will vary based on your particular use conditions. See how particular use conditions may affect your range in our simulation model.</p>
           <p>Vehicle range may vary depending on the vehicle configuration, battery age and condition, driving style and operating, environmental and climate conditions.</p>
         </div>

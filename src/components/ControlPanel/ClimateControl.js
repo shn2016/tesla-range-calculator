@@ -7,12 +7,12 @@ const ClimateControl = ({
 }) => (
   <div className='climate-control'>
     <button 
-      className={`climate-button ac on`} 
+      className={`climate-button ${mode} ${selectedClimate}`} 
       type='button'
       onClick={() => onClimateButtonClick()}
     >
-      <p>{mode} {selectedClimate}</p>
-      <div className='climate-icon'></div>
+      <p>{`${mode} ${selectedClimate}`}</p>
+      <div className={`climate-icon ${mode} ${selectedClimate}`}></div>
     </button>
   </div>
 )
