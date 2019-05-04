@@ -1,23 +1,21 @@
 import React from 'react';
 
-const TemperatureControl = ({ 
-  selectedTemperature,
-  onControlButtonClick,
+const Temperature = ({ 
+  temperature,
+  onChange,
 }) => (
   <div className="temperature-control">
     <p>Outside Temperature</p>
     <div className="option-container">
-      <p>{selectedTemperature} <sup>°</sup></p>
+      <p>{temperature} <sup>°</sup></p>
       <div className="option-button-container">
         <button 
           className="increase" 
-          onClick={() => onControlButtonClick('temperature', 'increase')}
-          type="button"
+          onClick={() => onChange('increase', temperature)}
         ></button>
         <button 
           className="decrease" 
-          onClick={() => onControlButtonClick('temperature', 'decrease')}
-          type="button"
+          onClick={() => onChange('decrease', temperature)}
         >
         </button>
       </div>
@@ -25,4 +23,4 @@ const TemperatureControl = ({
   </div>
 );
 
-export default TemperatureControl;
+export default Temperature;
