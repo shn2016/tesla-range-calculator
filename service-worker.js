@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/tesla-range-calculator/precache-manifest.3cb29967f4da1519e085ea5bab38deb9.js"
+  "/tesla-range-calculator/precache-manifest.ef16545b22497eaefcb63765737f50a4.js"
 );
 
 workbox.clientsClaim();
